@@ -62,6 +62,7 @@ public class Table {
     table.add("th", 'u');
     System.out.println(table.toString());
     System.out.println(table.choose("th"));
+    System.out.println(table.choose("va"));
   }
 
 }
