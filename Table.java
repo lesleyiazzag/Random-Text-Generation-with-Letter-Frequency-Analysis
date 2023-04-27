@@ -1,14 +1,16 @@
 // Students, please implement this class
-
+import structure5.*;
 /**
 * A Table holds a collection of strings, each of which has an
 * associated FrequencyTable
 */
 public class Table {
 
+  protected Hashtable<String, FrequencyTable> data;
+
   /** Construct an empty table */
   public Table() {
-
+    this.data = new Hashtable<String, FrequencyTable>();
   }
 
   /**
@@ -20,7 +22,11 @@ public class Table {
   * @param value is the character to add to the FrequencyTable of key
   */
   public void add(String key, char value) {
-
+    if (!data.containsKey(key)) {
+      data.put(key, new FrequencyTable());
+    } 
+    FrequencyTable table = data.get(key);
+    table.add(value);
   }
 
   /**
@@ -31,19 +37,31 @@ public class Table {
   * @return a character selected from the corresponding FrequencyTable
   */
   public char choose(String key) {
-    return 'Z';
+    if (data.containsKey(key)) {
+      FrequencyTable table = data.get(key);
+      char value = table.choose();
+      return value;
+    }
+    return '\0';
   }
 
   /** Produce a string representation of the Table 
   * @return a String representing this Table
   */
   public String toString() {
-    return "";
+    return this.data.toString();
   }
 
   // Use main to test your Table class
   public static void main(String[] args) {
-
+    Table table = new Table();
+    System.out.println(table.toString());
+    table.add("th", 'a');
+    table.add("th", 'e');
+    table.add("th", 'e');
+    table.add("th", 'u');
+    System.out.println(table.toString());
+    System.out.println(table.choose("th"));
   }
 
 }
