@@ -1,7 +1,6 @@
 // Students, please implement this class
 import structure5.*;
 import java.util.Random;
-
 import java.util.Iterator;
 /**
  * A FrequencyTable stores a set of characters each of which has
