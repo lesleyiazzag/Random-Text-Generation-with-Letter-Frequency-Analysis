@@ -46,7 +46,7 @@ public class FrequencyTable {
         return key;
       }
     }
-    return '\0';
+    return 'e';
   }
 
   /** Produce a string representation of the FrequencyTable 
@@ -54,6 +54,7 @@ public class FrequencyTable {
    */
   public String toString() {
     return this.data.toString();
+    //System.out.println("key: " + data.get(key) + ", value: " + data.get(key));
   }
 
   // Use main to test your FrequencyTable class
