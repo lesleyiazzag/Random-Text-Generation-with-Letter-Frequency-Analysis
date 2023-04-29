@@ -42,7 +42,7 @@ public class Table {
       char value = table.choose();
       return value;
     }
-    return '\0';
+    return 'e';
   }
 
   /** Produce a string representation of the Table 
