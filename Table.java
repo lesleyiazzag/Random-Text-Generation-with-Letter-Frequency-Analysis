@@ -42,6 +42,8 @@ public class Table {
       char value = table.choose();
       return value;
     }
+    System.out.println("Unrecognized token");
+    System.exit(1);
     return 'e';
   }
 
