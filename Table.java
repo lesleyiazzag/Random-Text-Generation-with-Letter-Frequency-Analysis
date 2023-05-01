@@ -24,7 +24,7 @@ public class Table {
   public void add(String key, char value) {
     if (!data.containsKey(key)) {
       data.put(key, new FrequencyTable());
-    } 
+    }
     FrequencyTable table = data.get(key);
     table.add(value);
   }
@@ -47,7 +47,7 @@ public class Table {
     return 'e';
   }
 
-  /** Produce a string representation of the Table 
+  /** Produce a string representation of the Table
   * @return a String representing this Table
   */
   public String toString() {
@@ -55,6 +55,10 @@ public class Table {
   }
 
   // Use main to test your Table class
+  /**
+   *
+   * @param args
+   */
   public static void main(String[] args) {
     Table table = new Table();
     System.out.println(table.toString());
