@@ -6,6 +6,10 @@ import java.util.Scanner;
 import java.io.FileNotFoundException;
 public class WordGen {
 
+    /**
+     *
+     * @return
+     */
     public static String loadFile() {
         Scanner in = new Scanner(System.in);
         StringBuffer textBuffer = new StringBuffer();
@@ -18,6 +22,12 @@ public class WordGen {
         return text;
     }
     
+    /**
+     *
+     * @param k
+     * @param text
+     * @return
+     */
     public static String generateText(int k, String text) {
         Table table = new Table();
         //int length = example.length();
@@ -38,6 +48,10 @@ public class WordGen {
         return seed;
     }
 
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         if (args.length == 1) { // if an argument is passed into the terminal...
             int k = Integer.parseInt(args[0]);
@@ -50,7 +64,6 @@ public class WordGen {
         }
     }
 }
-
 
 // Table table = new Table();
 // int k = 2;
@@ -68,3 +81,5 @@ public class WordGen {
 //     seed = seed + f;
 // }
 // System.out.println(seed);
+
+// bonus?
