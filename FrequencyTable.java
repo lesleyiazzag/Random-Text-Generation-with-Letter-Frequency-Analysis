@@ -49,15 +49,24 @@ public class FrequencyTable {
     return 'e';
   }
 
-  /** Produce a string representation of the FrequencyTable 
+  /** Produce a string representation of the FrequencyTable
    * @return a String representing the FrequencyTable
    */
   public String toString() {
-    return this.data.toString();
-    //System.out.println("key: " + data.get(key) + ", value: " + data.get(key));
+    //return this.data.toString();
+    Set<Character> keySet = data.keySet();
+    String string = "";
+    for (char key : keySet) {
+      string += "key: " + key + ", value: " + data.get(key) + "\n";
+    }
+    return string;
   }
 
   // Use main to test your FrequencyTable class
+  /**
+   *
+   * @param args
+   */
   public static void main(String[] args) {
     FrequencyTable table = new FrequencyTable();
     System.out.println(table.toString());
