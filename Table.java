@@ -1,4 +1,3 @@
-// Students, please implement this class
 import structure5.*;
 /**
 * A Table holds a collection of strings, each of which has an
@@ -6,9 +5,10 @@ import structure5.*;
 */
 public class Table {
 
+  /* INSTANCE VARIABLES */
   protected Hashtable<String, FrequencyTable> data;
 
-  /** Construct an empty table */
+  /** Constructs an empty table */
   public Table() {
     this.data = new Hashtable<String, FrequencyTable>();
   }
@@ -22,9 +22,11 @@ public class Table {
   * @param value is the character to add to the FrequencyTable of key
   */
   public void add(String key, char value) {
+    // If the key is not already in the Table...
     if (!data.containsKey(key)) {
       data.put(key, new FrequencyTable());
     }
+    // Add the value to the key's FrequencyTable
     FrequencyTable table = data.get(key);
     table.add(value);
   }
@@ -37,7 +39,9 @@ public class Table {
   * @return a character selected from the corresponding FrequencyTable
   */
   public char choose(String key) {
+    // If the Table contains the key...
     if (data.containsKey(key)) {
+      // Retrieve the related FrequencyTable and return a char with probability equal to its relative frequency
       FrequencyTable table = data.get(key);
       char value = table.choose();
       return value;
@@ -51,13 +55,19 @@ public class Table {
   * @return a String representing this Table
   */
   public String toString() {
-    return this.data.toString();
+    //return this.data.toString();
+    Set<String> keySet = data.keySet();
+    String str = "";
+    // Iteratively print out the keys and values in the Table
+    for (String key : keySet) {
+      str += "key: " + key + ", value: " + data.get(key) + "\n";
+    }
+    return str;
   }
 
-  // Use main to test your Table class
   /**
-   *
-   * @param args
+   * A main method to test our Table class
+   * @param args the arguments to be passed
    */
   public static void main(String[] args) {
     Table table = new Table();
@@ -70,5 +80,4 @@ public class Table {
     System.out.println(table.choose("th"));
     System.out.println(table.choose("va"));
   }
-
 }
