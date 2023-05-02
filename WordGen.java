@@ -1,19 +1,21 @@
-// Students, please implement this class
-// Reads the input text, builds the table, and prints out a randomly-generated
-// string based on the character sequence probabilities from the input text.
 import structure5.*;
 import java.util.Scanner;
-import java.io.FileNotFoundException;
+
+/**
+ * Reads the input text, builds the table, and prints out a randomly-generated
+ * string based on the character sequence probabilities from the input text.
+ */
 public class WordGen {
 
     /**
-     *
-     * @return
+     * A method to read in a file and return it as a String
+     * @return the String representation of the file
      */
     public static String loadFile() {
         Scanner in = new Scanner(System.in);
         StringBuffer textBuffer = new StringBuffer();
         while (in.hasNextLine()) {
+            // Adds in each line to include in the text's String representation
             String line = in.nextLine();
             textBuffer.append(line);
             textBuffer.append("\n");
@@ -23,16 +25,19 @@ public class WordGen {
     }
     
     /**
-     *
-     * @param k
-     * @param text
-     * @return
+     * A method that prints out a randomly-generated string based on the character
+     * sequence probabilities from the input text
+     * @param k the k-letter sequence whose frequencies we want to use
+     * @param text the input text represented as a String
+     * @return returns our randomly generated text
      */
     public static String generateText(int k, String text) {
         Table table = new Table();
         //int length = example.length();
+        // Iterating through each character in the text...
         for (int i = 0; i < text.length(); i++) {
             String tableKey = "";
+            // Iterating through our edge cases...
             for (int j = i; j < i + k; j++) {
                 tableKey += text.charAt(j % text.length());
             }
@@ -49,16 +54,18 @@ public class WordGen {
     }
 
     /**
-     *
-     * @param args
+     * A main method to test our WordGen program
+     * @param args the arguments to be passed into our program
      */
     public static void main(String[] args) {
-        if (args.length == 1) { // if an argument is passed into the terminal...
+        // If an argument is passed into the terminal...
+        if (args.length == 1) {
             int k = Integer.parseInt(args[0]);
             Assert.condition(k > 0, "k must be greater than 0");
             String text = loadFile();
             System.out.println(generateText(k, text));
-        } else { // if no argument is passed into the terminal...
+        // If no argument is passed into the terminal...
+        } else {
             System.out.println("Usage: java WordGen <k> < <input.txt>");
             System.exit(1);
         }
