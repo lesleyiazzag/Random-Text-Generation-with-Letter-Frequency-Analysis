@@ -33,18 +33,18 @@ public class WordGen {
      */
     public static String generateText(int k, String text) {
         Table table = new Table();
-        //int length = example.length();
         // Iterating through each character in the text...
         for (int i = 0; i < text.length(); i++) {
             String tableKey = "";
-            // Iterating through our edge cases...
+            // Iterating through our edge cases where k is our k-letter sequence...
             for (int j = i; j < i + k; j++) {
                 tableKey += text.charAt(j % text.length());
             }
+            // Create the character, which is the FrequencyTable's key
             char freqTableKey = text.charAt((k + i) % text.length());
             table.add(tableKey, freqTableKey);
         }
-        //System.out.println(table.toString());
+        // Iterate through the text, using the given k-value and 500 characters to generate new text
         String seed = text.substring(0, k);
         for (int j = 0; j < 500; j++) {
             char f = table.choose(seed.substring(j, j + k));
@@ -71,22 +71,3 @@ public class WordGen {
         }
     }
 }
-
-// Table table = new Table();
-// int k = 2;
-// String example = "The theatre is their thing";
-// //int length = example.length();
-// for (int i = 0; i < example.length() - k; i++) {
-//     String tableKey = example.substring(i, k + i);
-//     char freqTableKey = example.charAt(k + i);
-//     table.add(tableKey, freqTableKey);
-// }
-// //System.out.println(table.toString());
-// String seed = example.substring(0, k);
-// for (int j = 0; j < 50; j++) {
-//     char f = table.choose(seed.substring(j, j + k));
-//     seed = seed + f;
-// }
-// System.out.println(seed);
-
-// bonus?

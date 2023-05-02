@@ -7,7 +7,6 @@ import java.util.Iterator;
  * an associated integer frequency
  */
 public class FrequencyTable {
-
   /* INSTANCE VARIABLES */
   protected Hashtable<Character, Integer> data;
   private int totalFrequencies;

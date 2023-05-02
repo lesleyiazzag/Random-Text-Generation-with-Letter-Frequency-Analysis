@@ -55,7 +55,6 @@ public class Table {
   * @return a String representing this Table
   */
   public String toString() {
-    //return this.data.toString();
     Set<String> keySet = data.keySet();
     String str = "";
     // Iteratively print out the keys and values in the Table
