@@ -72,7 +72,7 @@ public class WholeWordgen {
     }
 
     /**
-     * A main method to test our WordGen program
+     * A main method to test our WholeWordGen program
      * @param args the arguments to be passed into our program
      */
     public static void main(String[] args) {
