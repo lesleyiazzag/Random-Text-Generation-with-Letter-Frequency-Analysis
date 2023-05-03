@@ -51,11 +51,21 @@ public class WholeWordgen {
     }
 
 
+    /**
+     * A method that retrieves the number of words in the text
+     * @param text the string to be passed through
+     * @return the length of the text string
+     */
     public static int getTextLength(String text) {
         String[] words = text.split("");
         return words.length;
     }
 
+    /**
+     * A method that converts a string of words into an array of strings
+     * @param text the string to be passed through
+     * @return the array of strings
+     */
     public static String[] getWordArray(String text) {
         String[] words = text.split("");
         return words;
