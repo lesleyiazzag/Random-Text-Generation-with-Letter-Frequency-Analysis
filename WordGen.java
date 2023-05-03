@@ -57,6 +57,9 @@ public class WordGen {
      * A main method to test our WordGen program
      * @param args the arguments to be passed into our program
      */
+    // I decided to hardcode the length of my output to 500 characters by iterating
+    // between 0-500 and randomly choosing a character to follow the substring
+    // retrieved by the k-value
     public static void main(String[] args) {
         // If an argument is passed into the terminal...
         if (args.length == 1) {
